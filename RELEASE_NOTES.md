@@ -7,4 +7,15 @@
 
 ## 0.2.0-SNAPSHOT
 
+
 * implemented Command pattern for handling Telegram Bot commands
+
+## 0.3.0-SNAPSHOT
+
+* JTB-13: added deployment process to the project
+
+## 0.4.0-SNAPSHOT
+
+* JTB-1: added repository layer.
+
+
