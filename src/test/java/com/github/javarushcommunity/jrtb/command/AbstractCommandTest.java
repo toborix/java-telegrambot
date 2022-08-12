@@ -19,7 +19,9 @@ abstract class AbstractCommandTest {
 
     protected JavarushTelegramBot javarushBot = Mockito.mock(JavarushTelegramBot.class);
 
+
     protected TelegramUserService telegramUserService = Mockito.mock(TelegramUserService.class);
+
     protected SendBotMessageService sendBotMessageService = new SendBotMessageServiceImpl(javarushBot);
 
     abstract String getCommandName();

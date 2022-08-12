@@ -1,5 +1,6 @@
 package com.github.javarushcommunity.jrtb.command;
 
+
 import com.github.javarushcommunity.jrtb.repository.entity.TelegramUser;
 import com.github.javarushcommunity.jrtb.service.TelegramUserService;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -13,11 +14,13 @@ import com.github.javarushcommunity.jrtb.service.SendBotMessageService;
 public class StartCommand implements Command {
 
     private final SendBotMessageService sendBotMessageService;
+
     private final TelegramUserService telegramUserService;
 
     public final static String START_MESSAGE = "Привет! Я [TEST] Java Telegram bot. Я помогу тебе быть в курсе " +
             "последнних" + " статей тех авторов, которые тебе интересны.";
-    // TODO: Изменить START_MESSAGE для нужд самого бота
+    
+
 
     /*
         Здесь не следует добавлять сервис через получение из Application Context.
@@ -25,14 +28,17 @@ public class StartCommand implements Command {
         работу приложения/бота
      */
 
+
     public StartCommand(SendBotMessageService sendBotMessageService, TelegramUserService telegramUserService) {
         this.sendBotMessageService = sendBotMessageService;
         this.telegramUserService = telegramUserService;
+
     }
 
 
     @Override
     public void execute(Update update) {
+
         String chatId = update.getMessage().getChatId().toString();
 
         telegramUserService.findByChatId(chatId).ifPresentOrElse(
@@ -48,5 +54,6 @@ public class StartCommand implements Command {
                 });
 
         sendBotMessageService.sendMessage(chatId, START_MESSAGE);
+
     }
 }
